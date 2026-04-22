@@ -1,0 +1,87 @@
+2026-04-22 02:48:48,992,p6370,{env_settings.py:38},INFO,EnvSettings initialized: agent_name=travel-assistant, version=1.0.0
+2026-04-22 02:48:48,992,p6370,{server.py:108},INFO,Strands' integration with A2A is experimental. Be aware of frequent breaking changes.
+2026-04-22 02:48:49,021,p6370,{server.py:166},INFO,Starting Travel Assistant Agent server
+INFO:     Started server process [6370]
+INFO:     Waiting for application startup.
+2026-04-22 02:48:49,042,p6370,{database.py:79},INFO,Initializing FlightDatabaseManager with db_path: ./data/flights.db
+2026-04-22 02:48:49,042,p6370,{server.py:47},INFO,Travel Assistant Agent starting up
+2026-04-22 02:48:49,042,p6370,{server.py:48},INFO,Agent URL: http://127.0.0.1:10001/
+2026-04-22 02:48:49,042,p6370,{server.py:49},INFO,Listening on 127.0.0.1:10001
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:10001 (Press CTRL+C to quit)
+INFO:     127.0.0.1:33862 - "GET /ping HTTP/1.1" 200 OK
+2026-04-22 02:49:17,451,p6370,{server.py:142},INFO,Agent discovery request: query='book flights'
+2026-04-22 02:49:17,451,p6370,{dependencies.py:43},INFO,Creating RegistryDiscoveryClient for http://127.0.0.1:7861
+2026-04-22 02:49:17,452,p6370,{registry_discovery_client.py:34},INFO,RegistryDiscoveryClient initialized for http://127.0.0.1:7861
+2026-04-22 02:49:17,452,p6370,{registry_discovery_client.py:52},INFO,Semantic search: 'book flights' (max_results=5)
+2026-04-22 02:49:17,454,p6370,{registry_discovery_client.py:80},INFO,Found 1 agents
+INFO:     127.0.0.1:44294 - "POST /api/discover-agents?query=book+flights HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44306 - "GET /ping HTTP/1.1" 200 OK
+/home/ubuntu/spring-2026-lab11-WayneTao777/.venv/lib/python3.12/site-packages/a2a/server/request_handlers/default_request_handler.py:196: UserWarning: The default A2A response stream implemented in the strands sdk does not conform to what is expected in the A2A spec. Please set the `enable_a2a_compliant_streaming` boolean to `True` on your `A2AServer` class to properly conform to the spec. In the next major version release, this will be the default behavior.
+  await self.agent_executor.execute(request, queue)
+2026-04-22 02:49:34,045,p6370,{metrics.py:570},INFO,Creating Strands MetricsClient
+[92m02:49:34 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= claude-sonnet-4-5-20250929; provider = anthropic
+2026-04-22 02:49:34,062,p6370,{utils.py:4004},INFO,
+LiteLLM completion() model= claude-sonnet-4-5-20250929; provider = anthropic
+2026-04-22 02:49:35,888,p6370,{tools.py:25},INFO,Tool called: search_flights(departure_city=New York, arrival_city=Los Angeles, departure_date=2025-12-20)
+2026-04-22 02:49:35,888,p6370,{database.py:132},INFO,Searching flights: New York -> Los Angeles, date: 2025-12-20
+2026-04-22 02:49:35,889,p6370,{database.py:168},INFO,Found 0 flights
+[92m02:49:35 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= claude-sonnet-4-5-20250929; provider = anthropic
+2026-04-22 02:49:35,890,p6370,{utils.py:4004},INFO,
+LiteLLM completion() model= claude-sonnet-4-5-20250929; provider = anthropic
+INFO:     127.0.0.1:53066 - "POST / HTTP/1.1" 200 OK
+[92m02:49:39 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= claude-sonnet-4-5-20250929; provider = anthropic
+2026-04-22 02:49:39,541,p6370,{utils.py:4004},INFO,
+LiteLLM completion() model= claude-sonnet-4-5-20250929; provider = anthropic
+2026-04-22 02:49:41,486,p6370,{agent.py:46},INFO,Tool called: discover_remote_agents(query='flight reservation booking confirmation payment processing', max_results=5)
+2026-04-22 02:49:41,486,p6370,{registry_discovery_client.py:52},INFO,Semantic search: 'flight reservation booking confirmation payment processing' (max_results=5)
+2026-04-22 02:49:41,489,p6370,{registry_discovery_client.py:80},INFO,Found 1 agents
+2026-04-22 02:49:41,489,p6370,{remote_agent_client.py:197},INFO,RemoteAgentCache initialized
+2026-04-22 02:49:41,489,p6370,{remote_agent_client.py:64},INFO,Created RemoteAgentClient for: Flight Booking Agent (ID: /flight-booking-agent, Skills: 5)
+2026-04-22 02:49:41,489,p6370,{remote_agent_client.py:254},INFO,Cached agent: Flight Booking Agent (ID: /flight-booking-agent)
+2026-04-22 02:49:41,489,p6370,{remote_agent_client.py:256},INFO,Cached 1 new agents. Total in cache: 1
+2026-04-22 02:49:41,490,p6370,{agent.py:97},INFO,Discovery successful: found 1 agents, cached 1 new
+[92m02:49:41 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= claude-sonnet-4-5-20250929; provider = anthropic
+2026-04-22 02:49:41,491,p6370,{utils.py:4004},INFO,
+LiteLLM completion() model= claude-sonnet-4-5-20250929; provider = anthropic
+2026-04-22 02:49:43,966,p6370,{agent.py:174},INFO,Tool called: invoke_remote_agent(agent_id='/flight-booking-agent', message='I need to book flight ID 1 with 2 seats. Please reserve the seats, confirm the reservation, and proc...')
+2026-04-22 02:49:43,966,p6370,{agent.py:199},INFO,Invoking agent: Flight Booking Agent
+2026-04-22 02:49:43,966,p6370,{remote_agent_client.py:74},INFO,Initializing A2A client for Flight Booking Agent at http://127.0.0.1:10002
+2026-04-22 02:49:44,001,p6370,{card_resolver.py:86},INFO,Successfully fetched agent card data from http://127.0.0.1:10002/.well-known/agent-card.json: {'capabilities': {'streaming': True}, 'defaultInputModes': ['text'], 'defaultOutputModes': ['text'], 'description': 'Flight booking and reservation management agent', 'name': 'Flight Booking Agent', 'preferredTransport': 'JSONRPC', 'protocolVersion': '0.3.0', 'skills': [{'description': 'Check seat availability for a specific flight.', 'id': 'check_availability', 'name': 'check_availability', 'tags': []}, {'description': 'Reserve seats on a flight for passengers.', 'id': 'reserve_flight', 'name': 'reserve_flight', 'tags': []}, {'description': 'Confirm and finalize a flight booking.', 'id': 'confirm_booking', 'name': 'confirm_booking', 'tags': []}, {'description': 'Process payment for a booking (simulated).', 'id': 'process_payment', 'name': 'process_payment', 'tags': []}, {'description': 'Update, view, or cancel existing reservations.', 'id': 'manage_reservation', 'name': 'manage_reservation', 'tags': []}], 'url': 'http://127.0.0.1:10002/', 'version': '0.0.1'}
+2026-04-22 02:49:44,001,p6370,{remote_agent_client.py:99},INFO,A2A client initialized for Flight Booking Agent
+2026-04-22 02:49:44,002,p6370,{remote_agent_client.py:115},INFO,Sending message to Flight Booking Agent: I need to book flight ID 1 with 2 seats. Please reserve the seats, confirm the reservation, and proc...
+2026-04-22 02:49:44,002,p6370,{remote_agent_client.py:143},INFO,A2A REQUEST to Flight Booking Agent:
+{
+  "jsonrpc": "2.0",
+  "method": "message/send",
+  "params": {
+    "message": {
+      "role": "user",
+      "parts": [
+        {
+          "kind": "text",
+          "text": "I need to book flight ID 1 with 2 seats. Please reserve the seats, confirm the reservation, and process the payment."
+        }
+      ],
+      "messageId": "99a13c280b204feb8d002fe04fe5c73b"
+    }
+  }
+}
+2026-04-22 02:49:46,835,p6370,{agent.py:203},INFO,Successfully invoked Flight Booking Agent
+[92m02:49:46 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= claude-sonnet-4-5-20250929; provider = anthropic
+2026-04-22 02:49:46,837,p6370,{utils.py:4004},INFO,
+LiteLLM completion() model= claude-sonnet-4-5-20250929; provider = anthropic
+2026-04-22 02:49:58,707,p6370,{tools.py:61},INFO,Tool called: check_prices(flight_id=1)
+2026-04-22 02:49:58,707,p6370,{database.py:176},INFO,Getting flight details for flight_id: 1
+2026-04-22 02:49:58,707,p6370,{database.py:193},INFO,Flight details retrieved: UA101
+[92m02:49:58 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= claude-sonnet-4-5-20250929; provider = anthropic
+2026-04-22 02:49:58,709,p6370,{utils.py:4004},INFO,
+LiteLLM completion() model= claude-sonnet-4-5-20250929; provider = anthropic
+INFO:     127.0.0.1:53074 - "POST / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56100 - "GET /ping HTTP/1.1" 200 OK
